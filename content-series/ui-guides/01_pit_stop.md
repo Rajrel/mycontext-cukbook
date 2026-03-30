@@ -98,11 +98,18 @@ Paste it in.
 
 ### Step 8: Click Analyze (Free)
 
-Hit **Analyze (Free)**. The result is instant — no API call, no cost.
+Hit **Analyze (Free)**. The result is instant — no API call to your LLM provider, no cost, no API key. Pit Stop runs the X-ray against the 9-Section Architecture and updates the panel with a structured breakdown.
 
 ![Pit Stop analysis result](screenshots/s10-pit-stop-analysis.png)
 
-The X-ray shows:
+### Step 9: Read the 9-section X-ray
+
+After Analyze finishes, the UI shows **one row (or chip) per section** — typically **①** through **⑨** — each marked as **present / detected**, **missing**, or sometimes **partial**. That is the X-ray: you are not getting generic tips; you are seeing **which architectural slots are empty** for *this* paste.
+
+You should also see a **summary** (for example, how many sections are missing or how complete the prompt is). Use that as your checklist before you change a word or hit Improve.
+
+Example breakdown for the weak prompt above:
+
 ```
 ✓ ① Role          — detected ("helpful assistant")
 ✗ ② Goal          — missing
@@ -117,7 +124,7 @@ The X-ray shows:
 
 **7 sections missing.** That's not a bad prompt — that's a fragment of a prompt.
 
-### What Each Missing Section Actually Does
+### Step 10: What each missing section unlocks
 
 | Section | What it unlocks |
 |---|---|
@@ -129,7 +136,7 @@ The X-ray shows:
 | ⑦ Output Contract | Exact format specification. The AI follows this. |
 | ⑧ Guard Rails | What to do when uncertain, when to refuse, what not to assume. |
 
-### Step 9: Improve with AI (if you have a key)
+### Step 11: Improve with AI (if you have a key)
 
 With an API key configured, the **✨ Improve with AI** button rewrites your prompt from scratch — filling in all 9 sections using the Guidebook architecture. The rewrite uses the same `PromptArchitect.improve()` pipeline available in the SDK.
 
