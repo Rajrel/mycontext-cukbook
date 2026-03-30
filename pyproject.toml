@@ -1,0 +1,26 @@
+[project]
+name = "mycontext-cukbook"
+version = "0.1.0"
+description = "Standalone tutorials: mycontext capability series (notebooks + articles in content-series/)."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "agent-framework>=1.0.0b251120",
+    "crewai>=1.6.1",
+    "google-adk>=1.14.1",
+    "ipykernel>=7.2.0",
+    "jupyter>=1.1.1",
+    "langchain>=1.2.10",
+    "langchain-community>=0.4.1",
+    "langchain-openai>=1.1.10",
+    "langchainhub>=0.1.21",
+    "tiktoken>=0.8.0",
+    "langgraph>=1.0.10",
+    "langmem>=0.0.30",
+    "litellm>=1.82.0",
+    "mycontext-ai>=0.10.2",
+    "nbformat>=5.10.0",
+    "python-dotenv>=1.0.0",
+    "requests>=2.31.0",
+    "deepeval>=2.0",
+]
