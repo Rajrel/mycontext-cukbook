@@ -1,6 +1,6 @@
 # mycontext-cukbook
 
-**GitHub:** [github.com/Rajrel/mycontext-cukbook](https://github.com/Rajrel/mycontext-cukbook)
+
 
 **mycontext-cukbook** is the standalone repository for the **mycontext capability series**: narrative notebooks, long-form articles, and web-app UI guides. Everything you need is under **`content-series/`** in **this** repo.
 
