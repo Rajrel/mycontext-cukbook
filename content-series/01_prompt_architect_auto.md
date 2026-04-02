@@ -10,7 +10,7 @@
 
 The section ordering is not a style choice — it follows **position-sensitivity findings** from LLM attention research:
 
-| Zone | Sections (assembled prompt, `research_flow=True`, mycontext-ai ≥ 0.10.1) | Research basis |
+| Zone | Sections (assembled prompt, `research_flow=True`, mycontext-ai ≥ 0.10.1; quality fields on Constraints need ≥ 0.11.0) | Research basis |
 |------|----------|---------------|
 | **Primacy zone** | Role, Goal | Models weight early tokens heavily. The role and mission land first, anchor everything after. *Liu et al. 2023, "Lost in the Middle"* |
 | **Instructions** | Rules, Style | Binding behavioral constraints and tone. Must use binding modals (must/never), never vague suggestions. |
@@ -89,6 +89,20 @@ result = architect.build(
 - **Anti-boilerplate** — suppresses "delve into", "it's no wonder", generic AI filler
 
 The result is a prompt that reads like it was written by an experienced prompt engineer who also read the research.
+
+---
+
+## Quality controls (0.11.0+)
+
+Starting in **mycontext-ai 0.11.0**, `PromptArchitect.build()` can populate optional fields on `result.improved_context.constraints` in addition to format and guard-rail text:
+
+- **`verbosity`** — `minimal` | `standard` | `detailed`
+- **`communication_posture`** — `direct` | `collaborative` | `educational`
+- **`answer_first`** — whether to lead with the conclusion before reasoning
+- **`forbidden_phrases`** — extra phrases the model must not use (beyond built-in anti-boilerplate)
+- **`self_check`** — domain-specific questions the model should verify before answering
+
+These are **auto-suggested from the task**, folded into the prompt through **`Constraints.render()`**, and **fully user-overridable** on the `Context` before you call `execute()`.
 
 ---
 

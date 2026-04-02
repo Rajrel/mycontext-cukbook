@@ -31,7 +31,8 @@ Not vibes. Structure.
 **Slide 3 — What it is**  
 PromptArchitect = auto prompt engineer.  
 `build(task)` → 9 sections.  
-Research-backed order. One API call.
+Research-backed order. One API call.  
+(0.11+) can also suggest quality fields on Constraints — verbosity, tone, answer-first, banned phrases, self-check.
 
 **Slide 4 — The magic line**  
 `PromptArchitect(provider="openai")`  

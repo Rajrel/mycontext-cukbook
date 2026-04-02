@@ -19,7 +19,7 @@ Every mycontext `Context` supports all of these out of the box:
 ```python
 from mycontext.intelligence import get_pattern_class
 
-ctx = get_pattern_class("code_reviewer").build_context(
+ctx = get_pattern_class("code_reviewer")().build_context(
     question="Review this code for security vulnerabilities",
     code=sample_code,
     language="python",
@@ -80,7 +80,7 @@ You built your prompt library in LangChain. You want to benchmark CrewAI. Withou
 ```python
 # Week 1: LangChain
 for template_name in my_templates:
-    ctx = get_pattern_class(template_name).build_context(...)
+    ctx = get_pattern_class(template_name)().build_context(...)
     lc_prompt = ctx.to_langchain()
 
 # Week 2: try CrewAI — zero prompt changes

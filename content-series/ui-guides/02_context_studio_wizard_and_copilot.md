@@ -130,6 +130,10 @@ From here you can:
 - **Export** to any format (OpenAI, Anthropic, Google, LangChain, LlamaIndex, Markdown, JSON, YAML)
 - **Execute** (with an API key) to test it immediately
 
+### Smart Execute: Output Style
+
+On flows that run through **Smart Execute** (for example, testing a cognitive pattern with one click), open **Output Style** before you run: set **verbosity**, **answer first**, and **self-verify**. Those controls map to backend **`quality`** overrides so the same assembled context can be answered in a tighter or more explicit style without rewriting the nine sections.
+
 ---
 
 ## Mode B: Let AI Drive — Copilot-Guided Flow

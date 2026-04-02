@@ -27,7 +27,7 @@ We'll walk through the **data analyzer** pattern end-to-end — from discovering
 Click **Cognitive Studio** in the navigation bar.
 
 You'll land on the catalog page. The platform stats are shown prominently:
-- **87 patterns** (88 including the question analyzer)
+- **88 cognitive patterns** (16 free + 72 enterprise)
 - **16 categories** (Analysis, Reasoning, Creative, Communication, Systems Thinking, etc.)
 - **8 export formats**
 - Each pattern tagged: Free ⚡ or Enterprise 🔒
@@ -142,6 +142,10 @@ The assembled context includes:
 - **Task:** Analyze your specific data with your specific goal
 
 This is not a generic "analyze the data" prompt. It's a complete analytical framework with explicit output structure, statistical rigor requirements, and honest uncertainty handling — derived from Tukey's EDA framework and the CRISP-DM process model.
+
+### Smart Execute: Output Style
+
+If you run the pattern through **Smart Execute** instead of exporting manually, use the **Output Style** section first: **verbosity**, **answer first**, and **self-verify** map to API **`quality`** fields on the server. In the SDK, the same levers live on **`Constraints`**, **`transform()`**, or **Prompt Architect** — `smart_execute()` does not accept the web-only `quality` payload.
 
 ### Step 6: Check the Quality Score
 

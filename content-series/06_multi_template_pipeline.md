@@ -69,7 +69,7 @@ qm = QualityMetrics(mode="heuristic")
 pipeline = ["question_analyzer", "risk_assessor", "synthesis_builder"]
 
 for name in pipeline:
-    ctx = get_pattern_class(name).build_context(question=question)
+    ctx = get_pattern_class(name)().build_context(question=question)
     score = qm.evaluate(ctx)
     gate = "PASS" if score.overall >= 60 else "BLOCK"
     print(f"{name}: {score.overall:.0f}/100 → {gate}")

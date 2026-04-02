@@ -2,7 +2,7 @@
 
 **The problem.** You have a business question. You open ChatGPT and get a generic, surface-level answer. You try to write a better prompt — but prompt engineering is a skill you didn't sign up to learn. You just want a good answer.
 
-**The pitch.** `smart_execute(question)` routes your question through mycontext's intelligence layer — assesses complexity, picks the right cognitive template from 85 options, assembles an expert-grade prompt, calls the model — and returns the response plus a full audit trail of what happened. You type one line. We make all the decisions.
+**The pitch.** `smart_execute(question)` routes your question through mycontext's intelligence layer — assesses complexity, picks the right cognitive pattern from a catalog of 88 (16 free + 72 enterprise), assembles an expert-grade prompt, calls the model — and returns the response plus a full audit trail of what happened. You type one line. We make all the decisions.
 
 ---
 
@@ -18,7 +18,7 @@ Under the hood, every call to `smart_execute` goes through three decision gates:
 
 **Tier 1 — Raw.** Simple, factual, or conversational questions. We send a clean direct prompt — no template overhead, fast and efficient.
 
-**Tier 2 — Single template.** Analytical questions needing structured reasoning. We pick the best cognitive pattern from our catalog of 85 templates — root cause analysis, data analysis, risk assessment, synthesis, and more — and build a full structured prompt.
+**Tier 2 — Single template.** Analytical questions needing structured reasoning. We pick the best cognitive pattern from our catalog of 88 patterns — root cause analysis, data analysis, risk assessment, synthesis, and more — and build a full structured prompt.
 
 **Tier 3 — Integrated pipeline.** Multi-angle, complex questions. We chain 2–5 templates, integrate them into one unified prompt. Your board-deck question gets decomposed, analyzed, risk-assessed, synthesized, and audience-adapted — automatically.
 
@@ -60,6 +60,19 @@ print(composed.to_messages())     # OpenAI messages format
 ```
 
 This is useful for debugging, cost estimation, or feeding the assembled prompt into your own pipeline.
+
+---
+
+## Web app vs SDK: Output Style and `quality` (0.11.0+)
+
+In the **web app**, Smart Execute includes an **Output Style** section: **verbosity**, **answer first**, and **self-verify**. Those choices are sent as API **`quality`** overrides when the backend runs the job.
+
+The SDK **`smart_execute()`** helper does **not** mirror that `quality` object. In Python, shape the answer by:
+
+- Building or editing **`Context`** with explicit **`Constraints`** (or using **`PromptArchitect`** so suggested quality fields land on `constraints`), and/or
+- Running **`transform()`** on the context — from **0.11.0**, this can set **verbosity** from assessed complexity alongside other normalizations.
+
+So: **UI = `quality` on the HTTP API; SDK = `Constraints` + `transform()` + template `build_context()`.**
 
 ---
 

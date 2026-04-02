@@ -18,9 +18,10 @@ dependencies = [
     "langgraph>=1.0.10",
     "langmem>=0.0.30",
     "litellm>=1.82.0",
-    "mycontext-ai>=0.10.2",
+    "mycontext-ai>=0.11.0",
     "nbformat>=5.10.0",
     "python-dotenv>=1.0.0",
     "requests>=2.31.0",
     "deepeval>=2.0",
+    "pyautogen>=0.10.0",
 ]

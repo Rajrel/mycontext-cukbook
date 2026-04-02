@@ -46,26 +46,30 @@ fused_skill.pattern  # "root_cause_analyzer"
 # Result: structured RCA reasoning applied to every code review
 ```
 
+Fused skills inherit each template’s **default quality scaffolding** where defined — many free patterns include **`self_check`** prompts on `Constraints`, which feeds the same pre-flight scoring story as **Prompt Architect** and **`QualityMetrics`** (0.11.0+).
+
 ---
 
 **3. Quality-gated execution — block before you burn tokens.**
 
 ```python
+from pathlib import Path
 from mycontext import SkillRunner
 
 runner = SkillRunner()
+# First argument must be a Path to the skill directory (or SKILL.md); runner loads it.
 result = runner.run(
-    skill,
+    Path("./my_skill"),  # directory containing SKILL.md
     task="Review this code for SQL injection",
     execute=False,          # check quality first
-    quality_threshold=0.7,  # block if assembled prompt scores below 0.7
+    quality_threshold=0.7,  # only enforced when execute=True
     language="Python",
     depth="thorough",
     focus_area="SQL injection and authentication",
 )
 
-print(result.quality_score.overall)  # 0.82 — passes
-print(result.gated)                  # False — execution proceeds
+print(result.quality_score.overall)  # e.g. 0.82
+print(result.gated)                  # False when execute=False
 ```
 
 A raw SKILL.md with vague instructions might score 0.41 — blocked before a token is spent.

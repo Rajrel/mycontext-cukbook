@@ -94,6 +94,10 @@ print(improved.diff_report())
 
 `improve()` is not a rewrite — it's a targeted repair. Strong sections survive.
 
+### Quality controls on the improved context (0.11.0+)
+
+After `improve()`, check `improved.improved_context.constraints` for the same optional quality fields as in `build()`: **`verbosity`**, **`communication_posture`**, **`answer_first`**, **`forbidden_phrases`**, and **`self_check`**. They are suggested by the architect when the model returns them, rendered via **`Constraints.render()`**, and you can overwrite any of them before execution.
+
 ---
 
 ## GuidanceOptimizer: the rules specialist

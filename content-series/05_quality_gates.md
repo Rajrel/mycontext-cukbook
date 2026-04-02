@@ -46,6 +46,8 @@ templated_score = qm.evaluate(templated_ctx) # Template-driven
 
 The heuristic runs in under 1ms — no API call, no token cost. Score every prompt before you send it.
 
+From **mycontext-ai 0.11.0**, `QualityMetrics` also rewards prompts whose **`Constraints`** include quality-oriented fields: a non-empty **`self_check`**, an explicit **`verbosity`** level, and/or **`forbidden_phrases`** — each is a signal that the prompt shapes *how* the model answers, not only *what* it must discuss.
+
 ---
 
 ## Wire a quality gate into your pipeline
@@ -87,6 +89,8 @@ output_score = evaluator.evaluate(ctx, llm_response)
 
 The seven dimensions map to what actually matters in production: is the answer grounded in the prompt's constraints? Does it match the intended register? Is it complete? Use it after execution to flag responses that need human review.
 
+When the **`Context`** defines **`constraints.forbidden_phrases`**, **`OutputEvaluator`** treats appearances of those phrases in the model output as a quality violation (lower score). That pairs naturally with Prompt Architect–suggested phrases or your own anti-boilerplate list.
+
 ---
 
 ## ContextAmplificationIndex: prove the template is worth it
@@ -103,7 +107,7 @@ result = cai.measure(
     provider="openai",
 )
 
-print(f"CAI: {result.overall_cai:.2f}x")  # e.g., "CAI: 2.1x"
+print(f"CAI: {result.cai_overall:.2f}x")  # e.g., "CAI: 2.1x"
 print(result.verdict)
 # "Strong amplification — risk_assessor provides 2.1x quality lift over raw prompt"
 ```

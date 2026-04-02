@@ -42,7 +42,7 @@ If you have a local checkout of the **mycontext** SDK as a sibling folder (`../m
 mycontext-ai = { path = "../mycontext", editable = true }
 ```
 
-The published default is **`mycontext-ai>=0.10.2`** from PyPI; bump the version in `dependencies` if you need a newer release.
+The published default is **`mycontext-ai>=0.11.0`** from PyPI; bump the version in `dependencies` if you need a newer release.
 
 ## Repo name
 

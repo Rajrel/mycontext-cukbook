@@ -1,6 +1,6 @@
 # Don't Guess Which Prompt Your App Needs
 
-**The problem.** There are 85 cognitive templates in mycontext — data analyzers, root cause analysts, risk assessors, scenario planners, synthesis builders, and more. Each one is optimized for a specific kind of reasoning task. The problem: how do you know which one your question needs? You could browse the docs. You could guess. Or you could use a wrong template and get worse results than no template at all.
+**The problem.** There are 88 cognitive patterns in mycontext (16 free + 72 enterprise) — data analyzers, root cause analysts, risk assessors, scenario planners, synthesis builders, and more. Each one is optimized for a specific kind of reasoning task. The problem: how do you know which one your question needs? You could browse the docs. You could guess. Or you could use a wrong template and get worse results than no template at all.
 
 **The pitch.** `suggest_patterns(question)` reads your task, analyzes its structure, and recommends the right templates with confidence scores and reasoning. No guessing. No browsing. Just `suggest_patterns("your task")`.
 
@@ -8,7 +8,7 @@
 
 ## Research grounding
 
-Template selection is grounded in **cognitive task analysis** — the idea that different reasoning tasks have structurally different optimal prompting approaches. A data analysis task benefits from a systematic deductive framework; a risk assessment from multi-angle exploration; a synthesis from integrative reasoning. mycontext's 85 templates encode these structural differences as parameterized cognitive patterns. The `suggest_patterns` engine uses keyword matching trained on the catalog's task taxonomy, validated by the CAI benchmark showing that using the *right* template for a task produces 15–30% better output quality than using any template. The penalty measured below for picking the wrong template is consistent with this finding.
+Template selection is grounded in **cognitive task analysis** — the idea that different reasoning tasks have structurally different optimal prompting approaches. A data analysis task benefits from a systematic deductive framework; a risk assessment from multi-angle exploration; a synthesis from integrative reasoning. mycontext's 88 patterns encode these structural differences as parameterized cognitive patterns. The `suggest_patterns` engine uses keyword matching trained on the catalog's task taxonomy, validated by the CAI benchmark showing that using the *right* template for a task produces 15–30% better output quality than using any template. The penalty measured below for picking the wrong template is consistent with this finding.
 
 ---
 
@@ -90,7 +90,7 @@ print(ctx.assemble())             # Full structured prompt, ready to use
 
 ## The full catalog
 
-85 templates across 6 categories — analysis, reasoning, creative, communication, planning, specialized. Enterprise tier adds a further set of domain-specific patterns.
+88 patterns across 6 categories — analysis, reasoning, creative, communication, planning, specialized (16 ship in the free tier; 72 require an enterprise license).
 
 ```python
 from mycontext.intelligence.pattern_catalog import NAME_TO_CATEGORY

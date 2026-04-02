@@ -19,7 +19,7 @@ The `ui-guides/` folder covers the same ideas for no-code users of the web app.
    uv sync
    ```
 
-   That installs **`mycontext-ai`** from PyPI (see root `README.md` for an optional editable sibling checkout), Jupyter, `python-dotenv`, LiteLLM, and agent-related packages used in the cross-framework notebook. The repo pins **`mycontext-ai>=0.10.2`**.
+   That installs **`mycontext-ai`** from PyPI (see root `README.md` for an optional editable sibling checkout), Jupyter, `python-dotenv`, LiteLLM, and agent-related packages used in the cross-framework notebook. The repo pins **`mycontext-ai>=0.11.0`**.
 
 3. **API keys** — In **`content-series/`**, copy the environment template and edit:
 
